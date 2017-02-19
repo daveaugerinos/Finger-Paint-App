@@ -7,21 +7,22 @@
 //
 
 #import "FingerPaintView.h"
+#import "FingerPaintLineView.h"
 
 @implementation FingerPaintView
 {
-    UIBezierPath *myPath;
+    FingerPaintLineView *myLine;
     UITouch *myTouch;
     CGPoint myPoint;
+    NSMutableArray *pathsArray;
 }
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
-        myPath = [[UIBezierPath alloc] init];
-        self.lineWidth = 10.0;
-        self.lineColour = [UIColor blackColor];
+        myLine = [[FingerPaintLineView alloc] initWithLineWidth:5.0 andColour:[UIColor blackColor]];
+        pathsArray = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -30,38 +31,43 @@
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect {
-    // Drawing code
-//    self.lineColour = self.lineColour;
-    myPath.lineWidth = self.lineWidth;
+
+    // Draw existing lines in paths array
+    for(FingerPaintLineView *currentLine in pathsArray) {
+        [currentLine.lineColour setStroke];
+        [currentLine.myPath stroke];
+    }
     
-    [self.lineColour setStroke];
-    
-    [myPath stroke];
+    [myLine.lineColour setStroke];
+    [myLine.myPath stroke];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     
+//    [myLine.lineColour setStroke];
     myTouch = [touches anyObject];
     myPoint = [myTouch locationInView:self];
-    [myPath moveToPoint:myPoint];
+    [myLine.myPath moveToPoint:myPoint];
 }
 
 - (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     myTouch = [touches anyObject];
     myPoint = [myTouch locationInView:self];
-    [myPath addLineToPoint:myPoint];
+    [myLine.myPath addLineToPoint:myPoint];
     [self setNeedsDisplay];
 }
 
 - (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     myTouch = [touches anyObject];
     myPoint = [myTouch locationInView:self];
-    [myPath addLineToPoint:myPoint];
+    [myLine.myPath addLineToPoint:myPoint];
+    [pathsArray addObject:myLine];
+    myLine = [[FingerPaintLineView alloc] initWithLineWidth:myLine.myPath.lineWidth andColour:myLine.lineColour];
     [self setNeedsDisplay];
 }
 
 - (void)changeLineColour:(UIColor *)colour {
-    self.lineColour = colour;
+    myLine.lineColour = colour;
 }
 
 

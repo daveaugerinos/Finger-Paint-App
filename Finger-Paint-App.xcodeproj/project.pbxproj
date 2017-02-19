@@ -15,6 +15,7 @@
 		A2AEA23E1E58FE4900312924 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2AEA23C1E58FE4900312924 /* LaunchScreen.storyboard */; };
 		A2AEA2491E58FE4900312924 /* Finger_Paint_AppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A2AEA2481E58FE4900312924 /* Finger_Paint_AppTests.m */; };
 		A2AEA2551E59000800312924 /* FingerPaintView.m in Sources */ = {isa = PBXBuildFile; fileRef = A2AEA2541E59000800312924 /* FingerPaintView.m */; };
+		A2AEA25B1E5A2A4D00312924 /* FingerPaintLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = A2AEA25A1E5A2A4D00312924 /* FingerPaintLineView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,8 @@
 		A2AEA24A1E58FE4900312924 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A2AEA2531E59000800312924 /* FingerPaintView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FingerPaintView.h; sourceTree = "<group>"; };
 		A2AEA2541E59000800312924 /* FingerPaintView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FingerPaintView.m; sourceTree = "<group>"; };
+		A2AEA2591E5A2A4D00312924 /* FingerPaintLineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FingerPaintLineView.h; path = ../FingerPaintLineView.h; sourceTree = "<group>"; };
+		A2AEA25A1E5A2A4D00312924 /* FingerPaintLineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FingerPaintLineView.m; path = ../FingerPaintLineView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +91,8 @@
 				A2AEA2321E58FE4900312924 /* AppDelegate.m */,
 				A2AEA2341E58FE4900312924 /* ViewController.h */,
 				A2AEA2351E58FE4900312924 /* ViewController.m */,
+				A2AEA2591E5A2A4D00312924 /* FingerPaintLineView.h */,
+				A2AEA25A1E5A2A4D00312924 /* FingerPaintLineView.m */,
 				A2AEA2531E59000800312924 /* FingerPaintView.h */,
 				A2AEA2541E59000800312924 /* FingerPaintView.m */,
 				A2AEA2371E58FE4900312924 /* Main.storyboard */,
@@ -218,6 +223,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2AEA25B1E5A2A4D00312924 /* FingerPaintLineView.m in Sources */,
 				A2AEA2361E58FE4900312924 /* ViewController.m in Sources */,
 				A2AEA2331E58FE4900312924 /* AppDelegate.m in Sources */,
 				A2AEA2551E59000800312924 /* FingerPaintView.m in Sources */,

@@ -10,9 +10,6 @@
 
 @interface FingerPaintView : UIView
 
-@property (strong, nonatomic) UIColor *lineColour;
-@property (assign, nonatomic) CGFloat lineWidth;
-
 - (void)changeLineColour:(UIColor *)colour;
 
 @end
