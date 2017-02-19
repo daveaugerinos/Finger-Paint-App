@@ -50,6 +50,7 @@
     index = 0;
     myTouch = [touches anyObject];
     myPoints[0] = [myTouch locationInView:self];
+    myLine.myPath.lineCapStyle = kCGLineCapRound;
     [myLine.myPath moveToPoint:myPoints[0]];
 }
 
@@ -61,7 +62,7 @@
     myPoints[index] = point;
     
     if(index == 4) {
-        // Move endpoint to middle of line joing second control point of first segment
+        // Move endpoint to middle of line joining second control point of first segment
         // and first control point of second segment
         myPoints[3] = CGPointMake((myPoints[2].x + myPoints[4].x) / 2.0, (myPoints[2].y + myPoints[4].y) / 2.0);
         
@@ -73,6 +74,7 @@
         
         myPoints[0] = [myLine.myPath currentPoint];
         
+        // setup for next segment
         myPoints[0] = myPoints[3];
         myPoints[1] = myPoints[4];
         index = 1;
@@ -82,6 +84,7 @@
 - (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
 
     myPoints[0] = [myLine.myPath currentPoint];
+    myLine.myPath.lineCapStyle = kCGLineCapRound;
     
     // Add line to array and re-initialize line
     [pathsArray addObject:myLine];
